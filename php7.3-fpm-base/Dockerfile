@@ -11,9 +11,11 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_POST_MAX_SIZE="8M" \
     PHP_UPLOAD_MAX_FILESIZE="2M" \
     PHP_PM_MAX_CHILDREN="40" \
+    PHP_PM_MAX_REQUESTS="0" \
     PHP_PM_START_SERVERS="5" \
     PHP_PM_MIN_SPARE_SERVERS="5" \
-    PHP_PM_MAX_SPARE_SERVERS="8"
+    PHP_PM_MAX_SPARE_SERVERS="8" \
+    PHP_REQUEST_SLOWLOG_TIMEOUT="0"
 
 # The fcgi packaged is required by the FPM healtcheck script.
 RUN apk --update add --no-cache \
