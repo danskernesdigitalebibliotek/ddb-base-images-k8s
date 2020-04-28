@@ -36,6 +36,10 @@ RUN apk --update add --no-cache --virtual .build-deps autoconf g++ make \
     && docker-php-ext-enable redis apcu \
     && apk del .build-deps
 
+# Added cache tool.
+ADD https://gordalina.github.io/cachetool/downloads/cachetool.phar /usr/local/bin/cachetool
+RUN chmod +x /usr/local/bin/cachetool
+
 # Added FPM health check script (https://github.com/renatomefi/php-fpm-healthcheck)
 ADD https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 RUN chmod +x /usr/local/bin/php-fpm-healthcheck
