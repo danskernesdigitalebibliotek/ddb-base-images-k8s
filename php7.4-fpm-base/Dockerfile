@@ -14,9 +14,7 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_PM_MAX_REQUESTS="0" \
     PHP_PM_START_SERVERS="5" \
     PHP_PM_MIN_SPARE_SERVERS="5" \
-    PHP_PM_MAX_SPARE_SERVERS="8" \
-    PHP_REQUEST_SLOWLOG_TIMEOUT="0" \
-    PHP_SLOWLOG="/var/log/php-slow.log"
+    PHP_PM_MAX_SPARE_SERVERS="8"
 
 # The fcgi packaged is required by the FPM healtcheck script.
 RUN apk --update add --no-cache \
