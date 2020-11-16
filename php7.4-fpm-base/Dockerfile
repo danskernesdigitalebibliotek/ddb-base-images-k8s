@@ -22,6 +22,7 @@ RUN apk --update add --no-cache \
         libxml2-dev \
         libzip-dev \
         fcgi \
+        rabbitmq-c-dev \
     && docker-php-ext-install -j$(nproc) \
         zip \
         opcache \
@@ -31,8 +32,8 @@ RUN apk --update add --no-cache \
         sysvsem
 
 RUN apk --update add --no-cache --virtual .build-deps autoconf g++ make \
-    && pecl install redis-4.0.1 apcu \
-    && docker-php-ext-enable redis apcu \
+    && pecl install redis-4.0.1 apcu amqp \
+    && docker-php-ext-enable redis apcu amqp\
     && apk del .build-deps
 
 # Added cache tool.
