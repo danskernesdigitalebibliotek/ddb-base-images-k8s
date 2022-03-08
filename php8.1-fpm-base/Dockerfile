@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:8.1-fpm-alpine
 LABEL maintainer="ITK Dev <itkdev@mkb.aarhus.dk>"
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
@@ -36,7 +36,7 @@ RUN apk --update add --no-cache \
         sysvsem
 
 RUN apk --update add --no-cache --virtual .build-deps autoconf g++ make \
-    && pecl install redis-4.0.1 apcu amqp \
+    && pecl install redis apcu amqp \
     && docker-php-ext-enable redis apcu amqp\
     && apk del .build-deps
 

@@ -15,7 +15,8 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_PM_MAX_REQUESTS="0" \
     PHP_PM_START_SERVERS="5" \
     PHP_PM_MIN_SPARE_SERVERS="5" \
-    PHP_PM_MAX_SPARE_SERVERS="8"
+    PHP_PM_MAX_SPARE_SERVERS="8" \
+    TZ=Europe/Copenhagen
 
 # The fcgi packaged is required by the FPM healtcheck script.
 RUN apk --update add --no-cache \
@@ -23,6 +24,7 @@ RUN apk --update add --no-cache \
         libzip-dev \
         fcgi \
         rabbitmq-c-dev \
+        tzdata \
     && docker-php-ext-install -j$(nproc) \
         zip \
         opcache \
