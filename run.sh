@@ -3,7 +3,7 @@
 set -e
 set -x
 
-VERSION=1.0.10
+VERSION=1.0.11
 
 docker build --no-cache --tag="danskernesdigitalebibliotek/php7.3-fpm-base:latest" --file="php7.3-fpm-base/Dockerfile" php7.3-fpm-base
 docker build --no-cache --tag="danskernesdigitalebibliotek/php7.4-fpm-base:latest" --file="php7.4-fpm-base/Dockerfile" php7.4-fpm-base
