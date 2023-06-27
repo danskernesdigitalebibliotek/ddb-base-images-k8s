@@ -27,11 +27,14 @@ RUN apk --update add --no-cache \
         fcgi \
         rabbitmq-c-dev \
         tzdata \
+        icu-dev \
+        icu-data-full \
     && docker-php-ext-install -j$(nproc) \
         zip \
         opcache \
         mysqli \
         pdo_mysql \
+        intl \
         soap \
         sysvsem
 
